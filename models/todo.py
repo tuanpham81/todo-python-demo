@@ -30,7 +30,7 @@ class TodoUpdate(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "description": "coding",
+                "description": "sleep",
                 "is_done": True
             }
         }

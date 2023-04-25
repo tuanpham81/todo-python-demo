@@ -18,7 +18,7 @@ class User(BaseModel):
                 "_id": "066de609-b04a-4b30-b46c-32537c7f1f6e",
                 "username": "admin",
                 "email": "tuan@email.com",
-                "password": "$2b$12$6UUqjEoXU51GGgj6OH.oOuqupcOspjpCKAVcjcdOyYgqN7xv9X1Aa",
+                "password": "$2b$12$6UUqjEoXU51GGgj6OH.oOuqupcOspjpCKAVcjcdOyYgqN7X1Aa",
                 "role": "admin",
                 "is_active": True
             }

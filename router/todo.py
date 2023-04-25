@@ -1,8 +1,8 @@
 from fastapi import HTTPException, APIRouter, Depends
 from fastapi.encoders import jsonable_encoder
-from pymongo import MongoClient
 from starlette import status
 
+from database import collection_todo
 from models.todo import Todo, TodoUpdate
 from router.auth import get_current_user
 
@@ -10,12 +10,6 @@ router = APIRouter(
     prefix="/todo",
     tags=["todo"]
 )
-
-cluster = MongoClient("mongodb+srv://tuan816:Copybox2023@cluster0.pzaped9.mongodb.net/?retryWrites=true&w=majority")
-db = cluster["todo-demo"]
-# db = cluster.get_database("todo-demo")
-collection_todo = db["todo"]
-# collection_todo = db.get_collection("todo")
 
 
 @router.get("/list")

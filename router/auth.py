@@ -5,27 +5,25 @@ from fastapi import FastAPI, APIRouter, Depends, HTTPException
 from fastapi.encoders import jsonable_encoder
 from jose import jwt, JWTError
 from pydantic import BaseModel
-from pymongo import MongoClient
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from starlette import status
 
+from database import collection_user
 from models.user import User
+
 
 app = FastAPI()
 router = APIRouter(
     prefix="/auth",
     tags=["auth"]
 )
+
 bcrypt_context = CryptContext(schemes=['bcrypt'])
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 SECRET_KEY = "Copybox2023"
 ALGORITHM = "HS256"
-
-cluster = MongoClient("mongodb+srv://tuan816:Copybox2023@cluster0.pzaped9.mongodb.net/?retryWrites=true&w=majority")
-db = cluster["todo-demo"]
-collection_user = db["user"]
 
 
 class Token(BaseModel):
